@@ -1,91 +1,77 @@
-import type { Quiz } from '@/types/quiz'
-import quizzesSeed from '@/data/quizzes.json'
+import type { Quiz } from '@/types/quiz';
 
-type QuizPayload = Omit<Quiz, 'id' | 'createdAt' | 'updatedAt'>
+// The payload for creating a new quiz, which doesn't have an ID or timestamps yet.
+type QuizPayload = Omit<Quiz, 'id' | 'createdAt' | 'updatedAt'>;
 
-const MIN_DELAY = 400
-const MAX_DELAY = 1200
-const ERROR_RATE_MIN = 0.08
-const ERROR_RATE_MAX = 0.12
+// The base URL of the Flask backend.
+const API_BASE_URL = 'http://127.0.0.1:5001/api';
 
-// In-memory persistence
-let quizzesDb: Quiz[] = (quizzesSeed as Quiz[]).map((q) => ({
-  ...q,
-}))
-
-let lastNumericId = quizzesDb.reduce((max, quiz) => {
-  const n = Number(quiz.id)
-  if (Number.isNaN(n)) return max
-  return Math.max(max, n)
-}, 0)
-
-function randomDelay(): Promise<void> {
-  const delay = MIN_DELAY + Math.floor(Math.random() * (MAX_DELAY - MIN_DELAY + 1))
-  return new Promise((resolve) => setTimeout(resolve, delay))
-}
-
-function shouldFail(): boolean {
-  const rate = ERROR_RATE_MIN + Math.random() * (ERROR_RATE_MAX - ERROR_RATE_MIN)
-  return Math.random() < rate
-}
-
-async function simulateNetwork(): Promise<void> {
-  await randomDelay()
-  if (shouldFail()) {
-    throw new Error('Network error')
+/**
+ * A helper function to handle common API request logic, including error handling.
+ * @param url - The URL to request.
+ * @param options - The options for the fetch request.
+ * @returns The JSON response from the API.
+ * @throws An error if the network response is not ok.
+ */
+async function apiRequest<T>(url: string, options: RequestInit = {}): Promise<T> {
+  const response = await fetch(url, options);
+  if (!response.ok) {
+    const errorBody = await response.json().catch(() => ({ message: 'An unknown error occurred' }));
+    throw new Error(errorBody.error || `Request failed with status ${response.status}`);
   }
+  // For 204 No Content, there is no body to parse.
+  if (response.status === 204) {
+    return null as T;
+  }
+  return response.json();
 }
 
+/**
+ * Fetches all quizzes from the backend.
+ * @returns A promise that resolves to an array of quizzes.
+ */
 export async function fetchQuizzes(): Promise<Quiz[]> {
-  await simulateNetwork()
-  return quizzesDb.map((q) => ({ ...q }))
+  return apiRequest<Quiz[]>(`${API_BASE_URL}/quizzes`);
 }
 
+/**
+ * Creates a new quiz by sending it to the backend.
+ * @param payload - The data for the new quiz.
+ * @returns A promise that resolves to the newly created quiz, including its server-generated ID.
+ */
 export async function createQuiz(payload: QuizPayload): Promise<Quiz> {
-  await simulateNetwork()
-
-  lastNumericId += 1
-  const now = new Date().toISOString()
-  const created: Quiz = {
-    id: String(lastNumericId),
-    createdAt: now,
-    updatedAt: now,
-    ...payload,
-  }
-
-  quizzesDb.push(created)
-  return { ...created }
+  return apiRequest<Quiz>(`${API_BASE_URL}/quizzes`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
 }
 
+/**
+ * Updates an existing quiz on the backend.
+ * @param id - The ID of the quiz to update.
+ * @param payload - The partial data to update the quiz with.
+ * @returns A promise that resolves to the updated quiz.
+ */
 export async function updateQuiz(id: string, payload: Partial<QuizPayload>): Promise<Quiz> {
-  await simulateNetwork()
-
-  const index = quizzesDb.findIndex((q) => q.id === id)
-  if (index === -1) {
-    throw new Error('Quiz not found')
-  }
-
-  const now = new Date().toISOString()
-  const source = quizzesDb[index] as Quiz
-  const updated: Quiz = {
-    id: source.id,
-    title: payload.title ?? source.title,
-    description: payload.description ?? source.description,
-    questions: payload.questions ?? source.questions,
-    tags: payload.tags ?? source.tags,
-    difficulty: payload.difficulty ?? source.difficulty,
-    isPublished: payload.isPublished ?? source.isPublished,
-    createdAt: source.createdAt,
-    updatedAt: now,
-    authorId: payload.authorId ?? source.authorId,
-    settings: payload.settings ?? source.settings,
-  }
-  quizzesDb[index] = updated
-
-  return { ...updated }
+  return apiRequest<Quiz>(`${API_BASE_URL}/quizzes/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
 }
 
+/**
+ * Deletes a quiz from the backend.
+ * @param id - The ID of the quiz to delete.
+ * @returns A promise that resolves when the quiz is deleted.
+ */
 export async function deleteQuiz(id: string): Promise<void> {
-  await simulateNetwork()
-  quizzesDb = quizzesDb.filter((q) => q.id !== id)
+  await apiRequest<void>(`${API_BASE_URL}/quizzes/${id}`, {
+    method: 'DELETE',
+  });
 }
