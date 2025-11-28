@@ -921,7 +921,7 @@ const previewQuiz = computed<Quiz | null>(() => {
   color: #166534;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .quiz-form {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -929,29 +929,147 @@ const previewQuiz = computed<Quiz | null>(() => {
   .quiz-form__header {
     grid-column: 1 / 2;
   }
+
+  .quiz-preview {
+    order: -1;
+  }
+}
+
+@media (max-width: 960px) {
+  .quiz-form {
+    padding: 1.5rem 0.75rem;
+    gap: 1.5rem;
+  }
+
+  .quiz-form__header-content {
+    flex-direction: column;
+  }
+
+  .quiz-form__header h2 {
+    font-size: 1.5rem;
+  }
+
+  .quiz-form__subtitle {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .quiz-form__body {
+    padding: 1.25rem;
+  }
+
+  .questions__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .question__header-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .question__header-actions select {
+    width: 100%;
+  }
+
+  .choice__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .choice__remove {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 @media (max-width: 640px) {
+  .quiz-form {
+    padding: 1rem 0.75rem;
+    gap: 1.25rem;
+  }
+
+  .quiz-form__header h2 {
+    font-size: 1.25rem;
+  }
+
+  .quiz-form__body {
+    padding: 1rem;
+  }
+
+  .question {
+    padding: 0.75rem;
+  }
+
   .question__header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .question__header h4 {
+    font-size: 0.95rem;
   }
 
   .question__fields {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 
   .field--points {
     width: 100%;
   }
 
+  .field__input--number {
+    width: 100%;
+  }
+
+  .choices__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .choices__header .btn {
+    width: 100%;
+  }
+
   .quiz-form__footer {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.75rem;
   }
 
   .quiz-form__actions {
-    justify-content: flex-end;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .quiz-form__actions .btn {
+    width: 100%;
+  }
+
+  .quiz-preview {
+    padding: 1rem;
+  }
+
+  .quiz-preview__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .quiz-preview__title {
+    font-size: 1rem;
   }
 }
 </style>

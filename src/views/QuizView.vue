@@ -241,6 +241,8 @@ function getChoiceLabel(question: Question, choiceId: string) {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .back-btn {
@@ -278,6 +280,36 @@ function getChoiceLabel(question: Question, choiceId: string) {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .quiz-page {
+    padding: 1.5rem 0.75rem 2rem;
+    gap: 1.25rem;
+  }
+
+  .quiz {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .quiz__header h1 {
+    font-size: 1.5rem;
+  }
+
+  .quiz__description {
+    font-size: 0.9rem;
+  }
+
+  .quiz__progress {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  progress {
+    width: 100%;
+  }
 }
 
 .quiz__difficulty {
@@ -429,8 +461,34 @@ progress {
 }
 
 @media (max-width: 640px) {
+  .quiz-page {
+    padding: 1rem 0.75rem 1.5rem;
+  }
+
   .quiz {
     padding: 1.25rem;
+    border-radius: 1rem;
+  }
+
+  .quiz__header h1 {
+    font-size: 1.25rem;
+  }
+
+  .quiz__meta {
+    font-size: 0.85rem;
+  }
+
+  .question-card {
+    padding: 1.25rem;
+  }
+
+  .question-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .choice {
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
   }
 
   .question-actions {
@@ -438,8 +496,25 @@ progress {
     gap: 0.75rem;
   }
 
-  progress {
-    width: 150px;
+  .btn {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .results__score {
+    font-size: 1rem;
+  }
+
+  .results__item {
+    padding: 0.75rem;
+  }
+
+  .results__question {
+    font-size: 0.95rem;
+  }
+
+  .results__answer {
+    font-size: 0.85rem;
   }
 }
 </style>

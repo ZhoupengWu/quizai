@@ -29,4 +29,14 @@ import { RouterLink, RouterView } from 'vue-router'
   font-size: 1.25rem;
   color: #111827;
 }
+
+@media (max-width: 640px) {
+  .nav {
+    padding: 1rem 0.75rem 0;
+  }
+
+  .nav__brand {
+    font-size: 1.1rem;
+  }
+}
 </style>
