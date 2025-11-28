@@ -1,138 +1,321 @@
 [
-    {
-      "id": "quiz-cyber-01",
-      "title": "Cybersecurity Basics",
-      "description": "Concetti fondamentali di sicurezza informatica.",
-      "difficulty": "easy",
-      "isPublished": true,
-      "createdAt": "2025-11-27T00:00:00.000Z",
-      "updatedAt": "2025-11-27T00:00:00.000Z",
-      "tags": ["security", "networking"],
-      "settings": {
-        "shuffleQuestions": true,
-        "shuffleChoices": true,
-        "allowRetake": true,
-        "maxAttempts": 3
-      },
-      "questions": [
-        {
-          "id": "q-cyber-01",
-          "prompt": "Qual è lo scopo principale di un firewall?",
-          "type": "multiple_choice",
-          "selectionMode": "single",
-          "points": 10,
-          "choices": [
-            { "id": "c1", "label": "Limitare l'accesso non autorizzato", "isCorrect": true },
-            { "id": "c2", "label": "Deframmentare il disco" },
-            { "id": "c3", "label": "Velocizzare il rendering grafico" },
-            { "id": "c4", "label": "Convertire i file in PDF" }
-          ]
-        },
-        {
-          "id": "q-cyber-02",
-          "prompt": "Quale protocollo viene utilizzato per cifrare il traffico web?",
-          "type": "multiple_choice",
-          "selectionMode": "single",
-          "points": 10,
-          "choices": [
-            { "id": "c1", "label": "TLS", "isCorrect": true },
-            { "id": "c2", "label": "FTP" },
-            { "id": "c3", "label": "SMTP" },
-            { "id": "c4", "label": "Telnet" }
-          ]
-        }
-      ]
+  {
+    "id": "quiz-cyber-01",
+    "title": "Cybersecurity Basics",
+    "description": "Concetti fondamentali di sicurezza informatica.",
+    "difficulty": "easy",
+    "isPublished": true,
+    "createdAt": "2025-11-27T00:00:00.000Z",
+    "updatedAt": "2025-11-27T00:00:00.000Z",
+    "tags": [
+      "security",
+      "networking"
+    ],
+    "settings": {
+      "shuffleQuestions": true,
+      "shuffleChoices": true,
+      "allowRetake": true,
+      "maxAttempts": 3
     },
-    {
-      "id": "quiz-devops-01",
-      "title": "DevOps Essentials",
-      "description": "Elementi chiave delle pipeline CI/CD e delle pratiche DevOps.",
-      "difficulty": "medium",
-      "isPublished": true,
-      "createdAt": "2025-11-27T00:00:00.000Z",
-      "updatedAt": "2025-11-27T00:00:00.000Z",
-      "tags": ["devops", "automation"],
-      "settings": {
-        "shuffleQuestions": true,
-        "shuffleChoices": true,
-        "allowRetake": false,
-        "maxAttempts": 1
+    "questions": [
+      {
+        "id": "q-cyber-01",
+        "prompt": "Qual è lo scopo principale di un firewall?",
+        "type": "multiple_choice",
+        "selectionMode": "single",
+        "points": 10,
+        "choices": [
+          {
+            "id": "c1",
+            "label": "Limitare l'accesso non autorizzato",
+            "isCorrect": true
+          },
+          {
+            "id": "c2",
+            "label": "Deframmentare il disco"
+          },
+          {
+            "id": "c3",
+            "label": "Velocizzare il rendering grafico"
+          },
+          {
+            "id": "c4",
+            "label": "Convertire i file in PDF"
+          }
+        ]
       },
-      "questions": [
-        {
-          "id": "q-devops-01",
-          "prompt": "Qual è l'obiettivo principale dell'integrazione continua?",
-          "type": "multiple_choice",
-          "selectionMode": "single",
-          "points": 15,
-          "choices": [
-            { "id": "c1", "label": "Eseguire build frequenti e automatizzate", "isCorrect": true },
-            { "id": "c2", "label": "Ridurre la velocità di distribuzione" },
-            { "id": "c3", "label": "Rimuovere tutti i test automatici" },
-            { "id": "c4", "label": "Modificare manualmente ogni release" }
-          ]
-        },
-        {
-          "id": "q-devops-02",
-          "prompt": "Quale strumento è comunemente usato per il provisioning dichiarativo?",
-          "type": "multiple_choice",
-          "selectionMode": "single",
-          "points": 15,
-          "choices": [
-            { "id": "c1", "label": "Terraform", "isCorrect": true },
-            { "id": "c2", "label": "cURL" },
-            { "id": "c3", "label": "Netcat" },
-            { "id": "c4", "label": "nano" }
-          ]
-        }
-      ]
+      {
+        "id": "q-cyber-02",
+        "prompt": "Quale protocollo viene utilizzato per cifrare il traffico web?",
+        "type": "multiple_choice",
+        "selectionMode": "single",
+        "points": 10,
+        "choices": [
+          {
+            "id": "c1",
+            "label": "TLS",
+            "isCorrect": true
+          },
+          {
+            "id": "c2",
+            "label": "FTP"
+          },
+          {
+            "id": "c3",
+            "label": "SMTP"
+          },
+          {
+            "id": "c4",
+            "label": "Telnet"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quiz-devops-01",
+    "title": "DevOps Essentials",
+    "description": "Elementi chiave delle pipeline CI/CD e delle pratiche DevOps.",
+    "difficulty": "medium",
+    "isPublished": true,
+    "createdAt": "2025-11-27T00:00:00.000Z",
+    "updatedAt": "2025-11-27T00:00:00.000Z",
+    "tags": [
+      "devops",
+      "automation"
+    ],
+    "settings": {
+      "shuffleQuestions": true,
+      "shuffleChoices": true,
+      "allowRetake": false,
+      "maxAttempts": 1
     },
-    {
-      "id": "quiz-ai-01",
-      "title": "AI & Machine Learning",
-      "description": "Quiz introduttivo su concetti di intelligenza artificiale.",
-      "difficulty": "medium",
-      "isPublished": true,
-      "createdAt": "2025-11-27T00:00:00.000Z",
-      "updatedAt": "2025-11-27T00:00:00.000Z",
-      "tags": ["ai", "ml"],
-      "settings": {
-        "shuffleQuestions": true,
-        "shuffleChoices": true,
-        "allowRetake": true,
-        "maxAttempts": 5
+    "questions": [
+      {
+        "id": "q-devops-01",
+        "prompt": "Qual è l'obiettivo principale dell'integrazione continua?",
+        "type": "multiple_choice",
+        "selectionMode": "single",
+        "points": 15,
+        "choices": [
+          {
+            "id": "c1",
+            "label": "Eseguire build frequenti e automatizzate",
+            "isCorrect": true
+          },
+          {
+            "id": "c2",
+            "label": "Ridurre la velocità di distribuzione"
+          },
+          {
+            "id": "c3",
+            "label": "Rimuovere tutti i test automatici"
+          },
+          {
+            "id": "c4",
+            "label": "Modificare manualmente ogni release"
+          }
+        ]
       },
-      "questions": [
-        {
-          "id": "q-ai-01",
-          "prompt": "Che cos'è un modello supervisionato?",
-          "type": "multiple_choice",
-          "selectionMode": "single",
-          "points": 20,
-          "choices": [
-            {
-              "id": "c1",
-              "label": "Un modello addestrato con dati etichettati",
-              "isCorrect": true
-            },
-            { "id": "c2", "label": "Un modello che genera etichette casuali" },
-            { "id": "c3", "label": "Un modello privo di dataset" },
-            { "id": "c4", "label": "Un modello che funziona solo offline" }
-          ]
-        },
-        {
-          "id": "q-ai-02",
-          "prompt": "Quale algoritmo è tipicamente usato per la classificazione binaria?",
-          "type": "multiple_choice",
-          "selectionMode": "single",
-          "points": 20,
-          "choices": [
-            { "id": "c1", "label": "Regressione logistica", "isCorrect": true },
-            { "id": "c2", "label": "Bubble sort" },
-            { "id": "c3", "label": "Dijkstra" },
-            { "id": "c4", "label": "AES" }
-          ]
-        }
-      ]
+      {
+        "id": "q-devops-02",
+        "prompt": "Quale strumento è comunemente usato per il provisioning dichiarativo?",
+        "type": "multiple_choice",
+        "selectionMode": "single",
+        "points": 15,
+        "choices": [
+          {
+            "id": "c1",
+            "label": "Terraform",
+            "isCorrect": true
+          },
+          {
+            "id": "c2",
+            "label": "cURL"
+          },
+          {
+            "id": "c3",
+            "label": "Netcat"
+          },
+          {
+            "id": "c4",
+            "label": "nano"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quiz-ai-01",
+    "title": "AI & Machine Learning",
+    "description": "Quiz introduttivo su concetti di intelligenza artificiale.",
+    "difficulty": "medium",
+    "isPublished": true,
+    "createdAt": "2025-11-27T00:00:00.000Z",
+    "updatedAt": "2025-11-27T00:00:00.000Z",
+    "tags": [
+      "ai",
+      "ml"
+    ],
+    "settings": {
+      "shuffleQuestions": true,
+      "shuffleChoices": true,
+      "allowRetake": true,
+      "maxAttempts": 5
+    },
+    "questions": [
+      {
+        "id": "q-ai-01",
+        "prompt": "Che cos'è un modello supervisionato?",
+        "type": "multiple_choice",
+        "selectionMode": "single",
+        "points": 20,
+        "choices": [
+          {
+            "id": "c1",
+            "label": "Un modello addestrato con dati etichettati",
+            "isCorrect": true
+          },
+          {
+            "id": "c2",
+            "label": "Un modello che genera etichette casuali"
+          },
+          {
+            "id": "c3",
+            "label": "Un modello privo di dataset"
+          },
+          {
+            "id": "c4",
+            "label": "Un modello che funziona solo offline"
+          }
+        ]
+      },
+      {
+        "id": "q-ai-02",
+        "prompt": "Quale algoritmo è tipicamente usato per la classificazione binaria?",
+        "type": "multiple_choice",
+        "selectionMode": "single",
+        "points": 20,
+        "choices": [
+          {
+            "id": "c1",
+            "label": "Regressione logistica",
+            "isCorrect": true
+          },
+          {
+            "id": "c2",
+            "label": "Bubble sort"
+          },
+          {
+            "id": "c3",
+            "label": "Dijkstra"
+          },
+          {
+            "id": "c4",
+            "label": "AES"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0a48f6d3-a3df-48b4-ac7c-989e0533f557",
+    "createdAt": "2025-11-28T21:38:03.828696+00:00",
+    "updatedAt": "2025-11-28T21:38:03.828696+00:00",
+    "title": "gggs",
+    "description": "ggfgg",
+    "questions": [
+      {
+        "id": "2a46e559-e7a9-404f-9c11-6c33fd880f03",
+        "prompt": "gfgfgf",
+        "type": "multiple_choice",
+        "selectionMode": "single",
+        "minSelections": 1,
+        "maxSelections": 1,
+        "required": true,
+        "points": 1,
+        "choices": [
+          {
+            "id": "ef887c56-d1ba-4dba-a9c2-db5954ac8c5d",
+            "label": "gfgfgf",
+            "isCorrect": true
+          },
+          {
+            "id": "26bc3edc-04cb-41b4-8fd5-f2eafcb583c6",
+            "label": "gfggfg",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "8337ff7d-fbe2-423a-8a1f-3d829654a7b6",
+        "prompt": "hghghfhfhf",
+        "type": "multiple_choice",
+        "selectionMode": "single",
+        "minSelections": 1,
+        "maxSelections": 1,
+        "required": true,
+        "points": 10,
+        "choices": [
+          {
+            "id": "d79b559e-93f8-4ec5-9788-63121145fd6e",
+            "label": "hfgfhg",
+            "isCorrect": false
+          },
+          {
+            "id": "16896d3d-f0c8-4efd-bf4a-b4c2ad8158dc",
+            "label": "hghghghg",
+            "isCorrect": true
+          }
+        ]
+      }
+    ],
+    "tags": [],
+    "difficulty": "medium",
+    "isPublished": false,
+    "settings": {
+      "shuffleQuestions": false,
+      "shuffleChoices": false,
+      "allowRetake": false
     }
-  ]
+  },
+  {
+    "id": "3bfad1e6-1d65-417e-b96e-95f0c68e3b9a",
+    "createdAt": "2025-11-28T21:39:08.344800+00:00",
+    "updatedAt": "2025-11-28T21:39:08.344800+00:00",
+    "title": "vfgvfsg",
+    "description": "gfdgfgf",
+    "questions": [
+      {
+        "id": "527003dd-386f-42ed-a5f6-e17bc69dbc6b",
+        "prompt": "gfgdgfgfgf",
+        "type": "multiple_choice",
+        "selectionMode": "single",
+        "minSelections": 1,
+        "maxSelections": 1,
+        "required": true,
+        "points": 1,
+        "choices": [
+          {
+            "id": "f820ee78-4a6c-48fd-babd-428f940c9cf6",
+            "label": "ffds",
+            "isCorrect": true
+          },
+          {
+            "id": "ecc90a99-1da1-4758-b609-74c8916d97b8",
+            "label": "gfgf",
+            "isCorrect": false
+          }
+        ]
+      }
+    ],
+    "tags": [],
+    "difficulty": "easy",
+    "isPublished": false,
+    "settings": {
+      "shuffleQuestions": false,
+      "shuffleChoices": false,
+      "allowRetake": false
+    }
+  }
+]
